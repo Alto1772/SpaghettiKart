@@ -1,6 +1,5 @@
 #include <filesystem>
 #include <fstream>
-#include <format>
 
 #include <libultraship.h>
 #include <libultraship/libultra.h>
@@ -17,7 +16,7 @@ typedef struct ControllerPak {
 } ControllerPak;
 
 std::string Pfs_PakFile_GetPath(u8 file_no) {
-    return Ship::Context::GetPathRelativeToAppDirectory(std::format("controllerPak_file_{}.sav", file_no));
+    return Ship::Context::GetPathRelativeToAppDirectory("controllerPak_file_" + std::to_string(file_no) + ".sav");
 }
 
 std::string Pfs_PakHeader_GetPath() {
